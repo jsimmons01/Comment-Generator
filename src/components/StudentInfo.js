@@ -8,14 +8,3 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
  * start with about 5 comments
  * eventually have subject based comments
  ************************************************************/
-class StudentInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      studentName: "",
-      boy: false,
-      girl: false,
-      level: "Below Grade Level",
-    };
-  }
-}
