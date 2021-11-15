@@ -7,8 +7,8 @@ import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
  * note that it is only to help teaches start
  * start with about 5 comments
  * eventually have subject based comments
- * fix checkbox alignment
- * make sure you can only choose one option for checkbox
+ * student name and gender pronouns will be added to the comments
+ * create file that has comments with space for name and gender
  * worry about style last
  * center submit button
  ************************************************************/
@@ -19,7 +19,7 @@ class StudentInfo extends Component {
       studentName: "",
       boy: false,
       girl: false,
-      level: "Below Grade Level",
+      level: " ",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,14 +31,11 @@ class StudentInfo extends Component {
   render() {
     return (
       <div className="row row-content">
-        <div className="col-12">
-          <h2>Teacher Comment Generator</h2>
-        </div>
         <div className="col-md-10">
           <Form onSubmit={this.handleSubmit}>
             <FormGroup row>
-              <Label htmlFor="studentName" md={2}>
-                Student Name
+              <Label htmlFor="studentName" md={4}>
+                Student's Name:
               </Label>
               <Col md={4}>
                 <Input
@@ -49,22 +46,24 @@ class StudentInfo extends Component {
                   value={this.studentName}
                 />
               </Col>
-              <Label check>
-                <strong>Boy</strong>
-                <Input type="checkbox" check={this.state.boy} />
-              </Label>
+              <Col>
+                <Input type="radio" name="gender" />
+                <Label check>Boy</Label>
+              </Col>
 
-              <Label check>
-                <strong>Girl</strong>
-                <Input type="checkbox" check={this.state.girl} />
-              </Label>
+              <Col>
+                <Input type="radio" name="gender" />
+                <Label check>Girl</Label>
+              </Col>
             </FormGroup>
             <FormGroup row>
-              <Label htmlFor="level">Level</Label>
-              <Col>
-                <Input type="select" name="level" value={this.state.level}>
+              <Label htmlFor="level" md={4}>
+                Level
+              </Label>
+              <Col md={4}>
+                <Input type="select" id="level" name="level">
                   <option>Below Grade Level</option>
-                  <opttion>On Grade Level</opttion>
+                  <option>On Grade Level</option>
                   <option>Above Grade Level</option>
                 </Input>
               </Col>

@@ -6,6 +6,6 @@ const Header = ({ title }) => {
   );
 };
 Header.defaultProps = {
-  title: "Comment Generator",
+  title: "Teacher Comment Generator",
 };
 export default Header;
