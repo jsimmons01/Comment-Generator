@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 
 /**********************************************************
- * create a form that takes in info about student
+ 
  * after form is submitted, choose correct comments from database that matches the student level
  * note that it is only to help teaches start
  * start with about 5 comments
@@ -10,7 +10,6 @@ import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
  * student name and gender pronouns will be added to the comments
  * create file that has comments with space for name and gender
  * worry about style last
- * center submit button
  ************************************************************/
 class StudentInfo extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class StudentInfo extends Component {
   render() {
     return (
       <div className="row row-content">
-        <div className="col-md-10">
+        <div className="col-md">
           <Form onSubmit={this.handleSubmit}>
             <FormGroup row>
               <Label htmlFor="studentName" md={4}>
@@ -69,9 +68,11 @@ class StudentInfo extends Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Button type="submit" color="primary">
-                Submit
-              </Button>
+              <Col>
+                <Button type="submit" color="success" size="lg" block>
+                  Submit
+                </Button>
+              </Col>
             </FormGroup>
           </Form>
         </div>

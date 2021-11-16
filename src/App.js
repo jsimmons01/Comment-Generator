@@ -1,16 +1,9 @@
-import Header from "./components/Header";
-import StudentInfo from "./components/StudentInfo";
-import { Card, CardHeader } from "reactstrap";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="container">
-      <Card>
-        <CardHeader>
-          <Header />
-          <StudentInfo />
-        </CardHeader>
-      </Card>
+      <Main />
     </div>
   );
 }
