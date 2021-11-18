@@ -1,3 +1,27 @@
+-The user will open the app and see a form for student information. They will also see directions (text) explaining how to use the app.
+
+-After the user puts in the student information and press the submit button, a comment will be generated.
+
+-The comment that is chosen will be selected based on the students level.
+
+-When the correct comment is chosen, the student’s name and gender pronouns will be inserted into the comment.
+
+-The user will see the new comment appear with the student’s information on it.
+
+-I will start off with three levels, below, on, and above to get started.
+
+-Eventually, I want to incorporate more, but not quite sure how I will implement it yet.
+
+-I also want to implement a new page (will have to use nav) to present teacher resources
+
+Student info is a component.
+
+Comment will be a component that takes in student info.
+
+Home will be the component that displays what is on the first page
+
+Teacher resource component will display some info and a list of help links for teachers with a brief description. This maybe even nice if they are no cards with the links logo
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -10,6 +10,10 @@ import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
  * student name and gender pronouns will be added to the comments
  * create file that has comments with space for name and gender
  * worry about style last
+ * fix my card 
+ * read the articles:
+ * https://medium.com/capital-one-tech/how-to-work-with-forms-inputs-and-events-in-react-c337171b923b
+ * https://reactjs.org/docs/events.html
  ************************************************************/
 class StudentInfo extends Component {
   constructor(props) {
