@@ -1,36 +1,48 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 
-/**********************************************************
+/*************************************************** TO DO**************************************************************************
  
- * after form is submitted, choose correct comments from database that matches the student level
- * note that it is only to help teaches start
+ * after form is submitted, 
+ * choose correct comments from database that matches the student level
  * start with about 5 comments
  * eventually have subject based comments
  * student name and gender pronouns will be added to the comments
  * create file that has comments with space for name and gender
- * worry about style last
- * fix my card 
- * read the articles:
- * https://medium.com/capital-one-tech/how-to-work-with-forms-inputs-and-events-in-react-c337171b923b
- * https://reactjs.org/docs/events.html
- ************************************************************/
+ * style page
+ * update button to change the radio input
+ * challenge: how exactly will I add new information to an array that is already created?
+ 
+
+ *********************************************************************************************************************************/
 class StudentInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      studentName: "",
+      studentName: " ",
       boy: false,
       girl: false,
-      level: " ",
+      level: "On Grade Level",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   handleSubmit(event) {
-    alert("Loading Comment");
-    this.props.resetFeedbackForm();
+    alert("Loading Comment." + JSON.stringify(this.state));
+    event.preventDefault();
   }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     return (
       <div className="row row-content">
@@ -46,7 +58,8 @@ class StudentInfo extends Component {
                   id="studentName"
                   name="studentName"
                   placeholder="Student Name"
-                  value={this.studentName}
+                  value={this.state.studentName}
+                  onChange={this.handleInputChange}
                 />
               </Col>
               <Col>
@@ -64,7 +77,13 @@ class StudentInfo extends Component {
                 Level
               </Label>
               <Col md={4}>
-                <Input type="select" id="level" name="level">
+                <Input
+                  type="select"
+                  id="level"
+                  name="level"
+                  value={this.state.level}
+                  onChange={this.handleInputChange}
+                >
                   <option>Below Grade Level</option>
                   <option>On Grade Level</option>
                   <option>Above Grade Level</option>
