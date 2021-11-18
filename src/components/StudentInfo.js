@@ -10,7 +10,6 @@ import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
  * student name and gender pronouns will be added to the comments
  * create file that has comments with space for name and gender
  * style page
- * update button to change the radio input
  * challenge: how exactly will I add new information to an array that is already created?
  
 
@@ -63,12 +62,22 @@ class StudentInfo extends Component {
                 />
               </Col>
               <Col>
-                <Input type="radio" name="gender" />
+                <Input
+                  type="radio"
+                  name="gender"
+                  value="boy"
+                  onChange={this.handleInputChange}
+                />
                 <Label check>Boy</Label>
               </Col>
 
               <Col>
-                <Input type="radio" name="gender" />
+                <Input
+                  type="radio"
+                  name="gender"
+                  value="girl"
+                  onChange={this.handleInputChange}
+                />
                 <Label check>Girl</Label>
               </Col>
             </FormGroup>
