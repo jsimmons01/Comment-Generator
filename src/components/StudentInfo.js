@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 //import AddStudentName from "./AddStudentName";
 import { COMMENTS } from "../comments";
-import AddStudentName from "./AddStudentName";
 
 /*************************************************** TO DO**************************************************************************
   
@@ -12,9 +11,9 @@ import AddStudentName from "./AddStudentName";
  * student name and gender pronouns will be added to the comments
  * create file that has comments with space for name and gender
  * style page
- * challenge: how exactly will I add new information to an array that is already created?
+ * renderComments is not working correctly. I may need to use an arrow function to parse through the comment using filter maybe and 
+ * then replace
  
-
  *********************************************************************************************************************************/
 class StudentInfo extends Component {
   constructor(props) {
@@ -28,6 +27,7 @@ class StudentInfo extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.renderComments = this.renderComments.bind(this);
   }
   handleSubmit(event) {
     alert("Loading Comment." + JSON.stringify(this.state));
@@ -44,12 +44,14 @@ class StudentInfo extends Component {
     });
   }
 
-  renderComments(comments) {
-    this.setState({
-      comments: this.state.comments.comment.replace(
-        /StudentName/g,
-        this.state.studentName
-      ),
+  renderComments() {
+    this.setState((state) => {
+      return {
+        comments: state.comments.comment.replace(
+          /StudentName/g,
+          this.state.studentName
+        ),
+      };
     });
   }
 
@@ -104,7 +106,7 @@ class StudentInfo extends Component {
                   id="level"
                   name="level"
                   value={this.state.level}
-                  onChange={this.handleInputChange}
+                  onChange={this.renderComments}
                 >
                   <option>Below Grade Level</option>
                   <option>On Grade Level</option>
