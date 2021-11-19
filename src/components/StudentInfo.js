@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
+//import AddStudentName from "./AddStudentName";
+import { COMMENTS } from "../comments";
+import AddStudentName from "./AddStudentName";
 
 /*************************************************** TO DO**************************************************************************
- 
- * after form is submitted, 
+  
  * choose correct comments from database that matches the student level
  * start with about 5 comments
  * eventually have subject based comments
@@ -19,9 +21,9 @@ class StudentInfo extends Component {
     super(props);
     this.state = {
       studentName: " ",
-      boy: false,
-      girl: false,
+      gender: " ",
       level: "On Grade Level",
+      comments: COMMENTS,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,6 +41,15 @@ class StudentInfo extends Component {
 
     this.setState({
       [name]: value,
+    });
+  }
+
+  renderComments(comments) {
+    this.setState({
+      comments: this.state.comments.comment.replace(
+        /StudentName/g,
+        this.state.studentName
+      ),
     });
   }
 
@@ -66,6 +77,7 @@ class StudentInfo extends Component {
                   type="radio"
                   name="gender"
                   value="boy"
+                  checked={this.state.gender === "boy"}
                   onChange={this.handleInputChange}
                 />
                 <Label check>Boy</Label>
@@ -76,6 +88,7 @@ class StudentInfo extends Component {
                   type="radio"
                   name="gender"
                   value="girl"
+                  checked={this.state.gender === "girl"}
                   onChange={this.handleInputChange}
                 />
                 <Label check>Girl</Label>
@@ -106,10 +119,20 @@ class StudentInfo extends Component {
                 </Button>
               </Col>
             </FormGroup>
+            <FormGroup row>
+              <Col>
+                <Input
+                  type="textarea"
+                  name="text"
+                  onChange={this.handleInputChange}
+                ></Input>
+              </Col>
+            </FormGroup>
           </Form>
         </div>
       </div>
     );
   }
 }
+
 export default StudentInfo;
