@@ -2,7 +2,7 @@
 
 -After the user puts in the student information and press the submit button, a comment will be generated.
 
--The comment that is chosen will be selected based on the students level.
+Generating the comment
 
 -When the correct comment is chosen, the student’s name and gender pronouns will be inserted into the comment.
 
