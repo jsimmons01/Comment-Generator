@@ -4,7 +4,9 @@
 
 Generating the comment
 
--When the correct comment is chosen, the student’s name and gender pronouns will be inserted into the comment.
+-Once the user puts in the student's level and gender, it will be matched with the comments from the array based on the level and gender. 
+-After the comment from the array is matched, a new array will be created. 
+-the student's name will be plugged into the array. 
 
 -The user will see the new comment appear with the student’s information on it.
 
