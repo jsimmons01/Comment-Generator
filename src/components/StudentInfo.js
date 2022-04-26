@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
-//import AddStudentName from "./AddStudentName";
 import { COMMENTS } from "../comments";
 
 /*************************************************** TO DO**************************************************************************
-  
- * choose correct comments from database that matches the student level
- * start with about 5 comments
+    *******************************Get the app working to dos******************
+    *create a comment file with boy and girl pronouns seperately
+    *create a component that filters through the array to match gender
+    *create another component that filters through array to match student level
+    *display generated comments in the text box       
+    *change names of components so they make more since     
+    *Actually may not need two components, but a render component that matches the gender with 
+    *with the grade level     
+    *Fix something, insertName is only working when put in the garde level            
+************************************Aspirations*********************************
+
  * eventually have subject based comments
- * student name and gender pronouns will be added to the comments
- * create file that has comments with space for name and gender
  * style page
- * renderComments is not working correctly. I may need to use an arrow function to parse through the comment using filter maybe and 
- * then replace
+ * add comments to a document that teacher can send to themselves
+ *
+
  
  *********************************************************************************************************************************/
 class StudentInfo extends Component {
@@ -22,12 +28,13 @@ class StudentInfo extends Component {
       studentName: " ",
       gender: " ",
       level: "On Grade Level",
+      text: " ",
       comments: COMMENTS,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.renderComments = this.renderComments.bind(this);
+    //this.insertName = this.insertName.bind(this);
   }
   handleSubmit(event) {
     alert("Loading Comment." + JSON.stringify(this.state));
@@ -39,21 +46,27 @@ class StudentInfo extends Component {
     const value = target.value;
     const name = target.name;
 
+    if (target.type === "text") {
+      this.setState({
+        [value]: this.state.comments.comment.replace(
+          /StudentName/g,
+          this.state.studentName
+        ),
+      });
+    }
     this.setState({
       [name]: value,
     });
   }
 
-  renderComments() {
-    this.setState((state) => {
-      return {
-        comments: state.comments.comment.replace(
-          /StudentName/g,
-          this.state.studentName
-        ),
-      };
-    });
-  }
+  // insertName(comments) {
+  //   this.setState({
+  //     [comments]: this.state.comments.comment.replace(
+  //       /StudentName/g,
+  //       this.state.studentName
+  //     ),
+  //   });
+  // }
 
   render() {
     return (
@@ -106,7 +119,7 @@ class StudentInfo extends Component {
                   id="level"
                   name="level"
                   value={this.state.level}
-                  onChange={this.renderComments}
+                  onChange={this.handleInputChange}
                 >
                   <option>Below Grade Level</option>
                   <option>On Grade Level</option>
@@ -127,7 +140,9 @@ class StudentInfo extends Component {
                   type="textarea"
                   name="text"
                   onChange={this.handleInputChange}
-                ></Input>
+                >
+                  {this.state.comments.comment}
+                </Input>
               </Col>
             </FormGroup>
           </Form>
