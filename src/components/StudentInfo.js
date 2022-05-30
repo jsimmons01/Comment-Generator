@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
-import { COMMENTS } from "../comments";
+import StudentComment from "./StudentComment";
 
 /*************************************************** TO DO**************************************************************************
     *******************************Get the app working to dos******************
@@ -28,8 +28,6 @@ class StudentInfo extends Component {
       studentName: " ",
       gender: " ",
       level: "On Grade Level",
-      text: " ",
-      comments: COMMENTS,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,27 +44,10 @@ class StudentInfo extends Component {
     const value = target.value;
     const name = target.name;
 
-    if (target.type === "text") {
-      this.setState({
-        [value]: this.state.comments.comment.replace(
-          /StudentName/g,
-          this.state.studentName
-        ),
-      });
-    }
     this.setState({
       [name]: value,
     });
   }
-
-  // insertName(comments) {
-  //   this.setState({
-  //     [comments]: this.state.comments.comment.replace(
-  //       /StudentName/g,
-  //       this.state.studentName
-  //     ),
-  //   });
-  // }
 
   render() {
     return (
@@ -134,18 +115,9 @@ class StudentInfo extends Component {
                 </Button>
               </Col>
             </FormGroup>
-            <FormGroup row>
-              <Col>
-                <Input
-                  type="textarea"
-                  name="text"
-                  onChange={this.handleInputChange}
-                >
-                  {this.state.comments.comment}
-                </Input>
-              </Col>
-            </FormGroup>
           </Form>
+          {/* When submit is pressed then comment is presented */}
+          <StudentComment />
         </div>
       </div>
     );

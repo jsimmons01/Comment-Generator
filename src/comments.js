@@ -1,5 +1,3 @@
-import { getOriginalBodyPadding } from "reactstrap/lib/utils";
-
 export const COMMENTS = [
   {
     id: 0,

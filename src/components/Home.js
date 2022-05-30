@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Card, CardTitle, CardBody, CardText } from "reactstrap";
+import { Card, CardTitle, CardBody } from "reactstrap";
 import StudentInfo from "./StudentInfo";
 
 class Home extends Component {
@@ -15,9 +15,7 @@ class Home extends Component {
 
         <Card>
           <CardBody>
-            <CardText>
-              <Directions />
-            </CardText>
+            <Directions />
           </CardBody>
         </Card>
       </div>
